@@ -1,0 +1,263 @@
+body {
+  background-color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.maincontent{
+  background-color: #ffffff;
+  color: #212121;
+}
+
+body.darkmode .maincontent{
+  background-color: #272727;
+  color: #f9f7f4;
+}
+
+body.darkmode{
+  background-color: rgb(43, 43, 43);
+  color: #f9f7f4;
+}
+
+body.darkmode a{
+  color: rgb(175, 204, 226);
+}
+
+a:link, a:visited, a:active {
+  color: rgb(51, 58, 63);
+}
+
+body.darkmode a.unitpopper{
+  color: red; 
+}
+
+a.unitpopper {
+  color: red;
+  text-decoration: none;
+}
+
+form.unitpopper {
+  display: inline; 
+  margin:0px; 
+  padding:0px; 
+  width:0;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px black solid;
+  font: 12px sans-serif;
+}
+
+td {
+  border: 1px black solid;
+  padding: 5px;
+  width: 160px;
+  height: 100px;
+  text-align:center;
+  font-size: 16px;
+}
+
+body.darkmode table{
+  border: 2px white solid;
+}
+
+body.darkmode td{
+  border: 1px white solid;
+}
+
+.customfooter {
+  color: #ffffff;
+  background-color: #4d4d4d;
+}
+
+a.customfooter {
+  color: #ffffff;
+}
+
+body.darkmode .modal-content{
+  background-color: #272727;
+}
+
+
+.nav-item {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.metreqinunmet {
+  text-decoration: none;
+}
+
+body.darkmode a.unitadder{
+  color: green; 
+}
+
+a.unitadder {
+  color: green;
+  text-decoration: none;
+}
+
+form.unitadder {
+  display: inline; 
+  margin:0px; 
+  padding:0px; 
+  width:0;
+}
+
+#moduleclog #collapseclog.collapse:not(.show) {
+  display: block;
+  height: 30rem;
+  overflow: hidden;
+}
+
+#moduleclog #collapseclog.collapsing {
+  height: 3rem;
+}
+
+.unitcontainer{
+  border-radius: 10px 10px 10px 10px;
+  background: #5d2dd6;
+  color: #eee;
+  padding: 0px;
+  width: 170px;
+  height: 100px;
+  border: 0px !important;
+}
+
+.unitcontainerleft{
+  width: 160px;
+  border: 0px !important;
+  text-align: left;
+  vertical-align: top;
+}
+
+.unitcontainerright{
+  background-color: #4d4d4d;
+  border-radius: 0px 10px 10px 0px;
+  width: 10px;  
+  border-right: 0px !important;
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+  border-left: 1px white solid !important;
+  padding: 0px;
+}
+
+body.darkmode .unitcontainerright{
+  background-color: #4d4d4d;
+}
+
+.verticaldots {
+  width: 10px;
+  height: 30px;
+  background-image: radial-gradient(circle, #eee 2px, transparent 3px);
+  background-size: 100% 33.33%;
+  margin: 3px;
+}
+
+.planunitcode{
+  font-size:17px;
+  margin-bottom: 0.25em;
+  padding-top: 0.25em;
+  padding-left: 3px;
+}
+
+.planunitname {
+  font-size: 12px;
+  padding-left: 3px;
+  overflow: hidden;
+  max-height: 45px;
+}
+
+.unitcontainerbutton{
+  background-color: transparent;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  width: 100%;
+}
+
+.unitmodal{
+  font-size: 15px;
+}
+.unitmodal h2{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0.33em;
+}
+
+.modal-unit{
+  width:900px;
+}
+
+
+body.darkmode .dropdown-menu {
+  color: #dee2e6;
+  background-color: #343a40;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+body.darkmode .dropdown-menu .dropdown-item {
+  color: #dee2e6;
+}
+body.darkmode .dropdown-menu .dropdown-item:hover, .dropdown-menu-dark .dropdown-item:focus {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+body.darkmode .dropdown-menu .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
+  color: #fff;
+  background-color: #0d6efd;
+}
+body.darkmode .dropdown-menu .dropdown-item.disabled, .dropdown-menu-dark .dropdown-item:disabled {
+  color: #adb5bd;
+}
+body.darkmode .dropdown-menu .dropdown-divider {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+body.darkmode .dropdown-menu .dropdown-item-text {
+  color: #dee2e6;
+}
+body.darkmode .dropdown-menu .dropdown-header {
+  color: #adb5bd;
+}
+
+.courseplanbg{
+  background-color: #f2f2f2;
+  width: 850px;
+}
+
+body.darkmode .courseplanbg{
+  background-color: #2f2f2f;
+}
+
+.planbutton{
+  height: 100%;
+}
+
+.btn-unit{
+  font-size: 16px;
+  width: 90px;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.reqorline{
+  text-align: center;
+}
+
+.reqand{
+  text-align: center;
+}
+
+.reqcontainer{
+  background-color: #f2f2f2;
+}
+
+body.darkmode .reqcontainer{
+  background-color: #2f2f2f;
+}
+
+.reqlinemet{
+  background-color: rgba(89, 139, 89, 0.377);
+  opacity: 33%;
+}

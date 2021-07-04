@@ -1,0 +1,22 @@
+        <table>
+        {% if semlst == [] %}
+        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+        {% endif %}
+        {%for sem in semlst%}
+            <tr>
+                {%for unit in sem%}
+                    {% if unit[0][:8] == 'Semester' or unit[0] == '' %}
+                        <td>{{unit[0]}}</td>
+                    {% else %}
+                        <td><form action="" method="POST" class="unitpopper"><a href="https://handbook.monash.edu/current/units/{{unit[0]}}" target="_blank">{{unit[0]}}</a><a href="#" onclick="this.parentNode.submit(); return false;" class="unitpopper"><sup>x</sup></a><input type="hidden" name="submit_button" id="unitform{{unit[0]}}" value="popunit{{unit[0]}}"></form><br><p class="planunitname">{{unit[1]}}</p></td>
+                    {% endif %}
+                {%endfor%}
+            </tr>
+        {%endfor%}
+        </table>
+        <br>
+        {% if semlst != [] %}
+            <a href="{{ url_for('static',filename='plans/plan.csv') }}">Download Plan as CSV</a>
+        {% endif %}
+        <br>
+ 

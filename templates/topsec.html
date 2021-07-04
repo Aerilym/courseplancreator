@@ -1,0 +1,65 @@
+
+    <div class="container maincontent">
+        <div>
+        <br>
+        <div class="btn-group dropend">
+            <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                  </svg> Settings
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu" style="width: 400px; padding: 8px;">
+                <li><form action="" method="POST">
+                    <input type="submit" name="submit_button" value="RESET">
+                </form></li>
+                <li><form action="" method="POST">
+                  <input type="submit" name="submit_button" value="DEVTEST">
+                </form></li>
+                <li><form action="" method="POST">
+                    <input type="submit" name="submit_button" value="Toggle Autogen"> Autogen {{autogenstatus}}
+                </form></li>
+                <li><form action="" method="POST">
+                  <input type="submit" name="submit_button" value="Toggle Semester"> Semester {{semstart}}
+                </form></li>
+                <li><form action="" method="POST">
+                  Year: <input type="text" name="yearstart" size="3" placeholder={{yearstart}}>
+                  <input type="submit" name="submit_button" value="Set Year">
+              </form></li>
+                <li>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                          <br>Completed Units: <input class="form-control" type="text" name="completedunits">
+                          <input class="btn btn-primary" type="submit" name="submit_button" value="Add Completed Unit/s">
+                        </div>
+                      </form>
+                      Completed Units: 
+                      <div>
+                      {%for unit in completedunits%}
+                        <button type="button" class="btn btn-secondary btn-sm btn-unit" data-toggle="modal" data-target="#{{unit}}unitmodal"><a>{{unit}}</a></button>
+                      {%endfor%}
+                    </div>
+                </li>
+                <li>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                          <br>Exempt Units: <input class="form-control" type="text" name="exemptunits">
+                          <input class="btn btn-primary" type="submit" name="submit_button" value="Add Exempt Unit/s">
+                        </div>
+                      </form>
+                      <br>Exempt Units:
+                      <div>
+                      {%for unit in exemptunits%}
+                        <button type="button" class="btn btn-secondary btn-sm btn-unit" data-toggle="modal" data-target="#{{unit}}unitmodal"><a>{{unit}}</a></button>
+                      {%endfor%}
+                    </div> 
+                </li>
+                <li><button class="dropdown-item" type="button">Something else here</button></li>
+            </ul>
+        </div>
+
+
+
+        <div class="row mb-3">
+            <div class="col-md-4 themed-grid-col">
+
+            

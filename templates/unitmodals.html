@@ -1,0 +1,70 @@
+{%for unitinfo in unitmodalinfo%}
+<!-- unitinfo KEY
+0 code
+1 name
+2 overview
+3 prerequisites
+4 corequisites
+5 prohibitions
+6 recommendations
+7 semester
+8 creditpoints
+9 faculty
+10 school
+11 scaband
+12 eftsl
+13 studylevel
+14 opentoexchange 
+-->
+    <div class="modal fade" id="{{unitinfo[0]}}unitmodal" tabindex="-1" role="dialog" aria-labelledby="{{unitinfo[0]}}unitmodalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-unit" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="{{unitinfo[0]}}unitmodalLongTitle">{{unitinfo[0]}} - {{unitinfo[1]}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body unitmodal">
+            <div class="container-fluid" style="padding-left: 12px; padding-right: 12px;">
+                <div class="row">
+                <div class="col-md-4">
+                    <h2>Semesters</h2>
+                    {%for semi in unitinfo[7]%}
+                        {{semi}}<br>
+                    {%endfor%}
+                    </p>
+                    <br>Credit Points: {{unitinfo[8]}}<br>Faculty: {{unitinfo[9]}}<br>School: {{unitinfo[10]}}</div>
+                <div class="col-md-8">
+                    {% if unitinfo[2] != '' %}<h2>Overview:</h2><p>{{unitinfo[2]}}</p>{% endif %}
+                    {% if unitinfo[3] != '' %}<h2>Prerequisites:</h2><p>{{unitinfo[3]}}</p>{% endif %}
+                    {% if unitinfo[4] != '' %}<h2>Corequisites:</h2><p>{{unitinfo[4]}}</p>{% endif %}
+                    {% if unitinfo[6] != '' %}<h2>Recommendations:</h2><p>{{unitinfo[6]}}</p>{% endif %}
+                    {% if unitinfo[5] != '' %}<h2>Prohibitions:</h2><p>{{unitinfo[5]}}</p>{% endif %}
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <div class="container" style="padding-left: 12px; padding-right: 12px;">
+                <div class="row">
+                <div class="col-md-3">
+                <a href="https://handbook.monash.edu/current/units/{{unitinfo[0]}}" target="_blank"><button type="button" class="btn btn-primary">Handbook</button></a>
+                </div>
+                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-primary" style="margin-left: 5px">Bookmark</button>
+                <button type="button" class="btn btn-primary" style="margin-left: 5px">Make Complete</button>
+                <button type="button" class="btn btn-primary" style="margin-left: 5px">Make Exemption</button>
+
+                <form action="" method="POST"><input type="hidden" name="submit_button" id="unitform{{unitinfo[0]}}" value="addunit{{unitinfo[0]}}"><a href="#" onclick="this.parentNode.submit(); return false;"><button type="button" class="btn btn-primary" style="margin-left: 5px">Add Unit</button></a></form>
+
+                <form action="" method="POST"><a href="#" onclick="this.parentNode.submit(); return false;"><button type="button" class="btn btn-primary" style="margin-left: 5px">Remove Unit</button></a><input type="hidden" name="submit_button" id="unitform{{unitinfo[0]}}" value="popunit{{unitinfo[0]}}"></form>
+
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+{%endfor%}

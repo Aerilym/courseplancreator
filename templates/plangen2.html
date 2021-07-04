@@ -1,0 +1,53 @@
+        <div class="courseplan">
+            Credit Points: {{credits}} / {{creditpointgoal}}
+        <div class="courseplanbg">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: {{creditpercent}}%" aria-valuenow="{{credits}}" aria-valuemin="0" aria-valuemax="{{creditpointgoal}}"></div>
+              </div>
+        <table>
+        {% if semlst == [] %}
+        <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+        {% endif %}
+        {%for sem in semlst%}
+            <tr>
+                {%for unit in sem%}
+                    {% if unit[0][:8] == 'Semester' or unit[0] == '' %}
+                        <td>{{unit[0]}}</td>
+                    {% else %}
+                        <td>
+                            <div>
+                                <table class="unitcontainer">
+                                    <tbody>
+                                    <tr>
+                                <td class="unitcontainerleft"><p class="planunitcode">{{unit[0]}}</p><p class="planunitname">{{unit[1]}}</p></td>
+                                <td class="unitcontainerright">
+                                    <div class="btn-group dropend planbutton">
+                                        <button class="unitcontainerbutton btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <div class="verticaldots">
+                                                
+                                            </div>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                            <li><button type="button" class="dropdown-item" data-toggle="modal" data-target="#{{unit[0]}}unitmodal">Unit Info</button></li>
+                                            <li><form action="" method="POST"><a href="#" onclick="this.parentNode.submit(); return false;" class="dropdown-item">Remove Unit</a><input type="hidden" name="submit_button" id="unitform{{unit[0]}}" value="popunit{{unit[0]}}"></form></li>
+                                            <li><button class="dropdown-item" type="button">Something else here</button></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tbody>
+                            </tr>
+                            </table>
+                            </div>
+                        </td>
+                    {% endif %}
+                {%endfor%}
+            </tr>
+        {%endfor%}
+        </table>
+    </div>
+    </div>
+        <br>
+        {% if semlst != [] %}
+            <a href="{{ url_for('static',filename='plans/plan.csv') }}">Download Plan as CSV</a>
+        {% endif %}
+        <br>

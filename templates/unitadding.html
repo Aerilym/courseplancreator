@@ -1,0 +1,16 @@
+<form action="" method="POST">
+    <div class="form-group">
+      Units: <div style="width: 374px;"><input class="form-control" type="text" name="units"></div>
+      <input class="btn btn-primary" type="submit" name="submit_button" value="Add Unit/s">
+    </div>
+  </form>
+  Added Units: 
+  <div>
+  {%for unit in units%}
+    <button type="button" class="btn btn-secondary btn-sm btn-unit" data-toggle="modal" data-target="#{{unit}}unitmodal"><a>{{unit}}</a></button>
+  {%endfor%}
+ </div>
+  <br>
+  <form action="" method="POST">
+      <input class="btn btn-primary" type="submit" name="submit_button" value="Generate order">
+  </form>

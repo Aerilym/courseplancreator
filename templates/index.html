@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Course Plan Creator</title>
+        <meta name="description" content="A tool for creating Monash University course plans.">
+        <meta name="author" content="Ryan Miller">
+        <meta name="keywords" content="planner,course planner,course,Monash,student,students">
+        <meta charset="UTF-8">
+        <meta property="og:title" content="Course Plan Creator">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="A tool for creating Monash University course plans.">
+        <meta property="og:url" content="https://www.imdb.com/title/tt0117500/">
+        <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    </head>
+    
+    <body>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+          function getCookie(name) {
+              var dc = document.cookie;
+              var prefix = name + "=";
+              var begin = dc.indexOf("; " + prefix);
+              if (begin == -1) {
+                  begin = dc.indexOf(prefix);
+                  if (begin != 0) return null;
+              }
+              else
+              {
+                  begin += 2;
+                  var end = document.cookie.indexOf(";", begin);
+                  if (end == -1) {
+                  end = dc.length;
+                  }
+              }
+              // because unescape has been deprecated, replaced with decodeURI
+              //return unescape(dc.substring(begin + prefix.length, end));
+              return decodeURI(dc.substring(begin + prefix.length, end));
+          } 
+
+          function darkmodetoggle() {
+              var myCookie = getCookie("darkmodepref");
+              if (myCookie.includes('False')){
+                document.cookie = "darkmodepref=True; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+              } else if (myCookie.includes('True')){
+                document.cookie = "darkmodepref=False; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+              }
+              document.body.classList.toggle("darkmode");
+              }
+
+          </script>
+          <script>
+
+          const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+          var myCookie = getCookie("darkmodepref");
+          if (myCookie == null){
+                if (prefersDarkScheme.matches) {
+                      document.cookie = "darkmodepref=True; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+                      document.body.classList.toggle("darkmode");
+                }
+            } else if (myCookie.includes('True')){
+              document.body.classList.toggle("darkmode");
+            } else {
+              document.cookie = "darkmodepref=False; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+            }
+        </script>
+
+    <nav class="navbar sticky-top navbar-dark" style="background-color: #006cab">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            Unofficial Course Plan Creator for Monash University Courses
+          </a>
+          <ul class="nav">
+            <li class="nav-item">
+              <a style="color: #eee;" href="https://forms.gle/xdpVwzmMDfABqJ8XA" target="_blank"><button type="button" class="btn btn-primary">Report an Issue</button></a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RecommendedToolsModal">Recommended Tools</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AboutModal">About</button>
+            </li>
+          </ul>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DEVModal">DEV TOOLS</button>
+          <button type="button" class="btn btn-primary" onclick="darkmodetoggle()">Toggle Dark/Light Mode</button>
+        </div>
+      </nav>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="RecommendedToolsModal" tabindex="-1" role="dialog" aria-labelledby="RecommendedToolsModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="RecommendedToolsModalLongTitle">Recommended Tools</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Unofficial Tools</h6>
+          <ul>
+              <li><a href="https://will.io/timetables/" target="_blank">Timetable Finder</a> - Generate and constrain possible timetables for all your units. (Available on <a href="https://will.io/" target="_blank">will.io</a>)</li>
+          </ul>
+          <h6>Official Tools</h6>
+          <ul>
+            <li><a href="https://monplan.apps.monash.edu/" target="_blank">MonPlan</a> - The official Monash course planner.</li>
+            <li><a href="https://my.monash.edu/wes/" target="_blank">Web Enrolment System (WES)</a> - Enrol in your units.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+            <span class="text-muted" style="font-size: 12px;">None of these tools were made by me, these are just some useful tools made by other students and/or made or supported by Monash</span>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="AboutModal" tabindex="-1" role="dialog" aria-labelledby="AboutModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="AboutModalLongTitle">About</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="DEVModal" tabindex="-1" role="dialog" aria-labelledby="DEVModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="DEVModalLongTitle">DEV TOOLS (BUILD {{currentversion}})</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <a href="https://forms.gle/jn2qgEoqXQcrF5zm9" target="_blank">TEST FEEDBACK</a>
+          <form action="" method="POST">
+            <input type="submit" name="submit_button" value="DEVTEST">
+          </form>
+          <form action="" method="POST">
+            Credit Point Goal: <input type="text" name="CPGOAL" size="3">
+            <input type="submit" name="submit_button" value="Set Credit Point Goal">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+            
